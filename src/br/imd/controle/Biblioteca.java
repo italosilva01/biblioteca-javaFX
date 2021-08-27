@@ -2,6 +2,7 @@ package br.imd.controle;
 
 import java.util.ArrayList;
 
+import br.imd.dao.ClienteDAO;
 import br.imd.modelo.Cliente;
 import br.imd.modelo.Funcionario;
 import br.imd.modelo.Obrar;
@@ -11,12 +12,15 @@ public class Biblioteca {
  private ArrayList<Funcionario> funcionarios;
  private ArrayList<Obrar> acervo;
  
+ ClienteDAO bdCliente;
  
  public void adicionarCliente (Cliente novoCliente) {
-	 
+	 bdCliente = ClienteDAO.getInstace();
 	 clientes.add(novoCliente);
-	 
+	 bdCliente.inserirCliente(novoCliente);
 	 // adicionar lógica para salvar no DAO
+	 
+	 
  }
  
  public boolean removerCliente (String nome) {

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="454.0" prefWidth="773.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrn.imd.controle.UsuarioDetalhesController">
+   <children>
+      <Label layoutX="39.0" layoutY="8.0" prefHeight="60.0" prefWidth="200.0" text="Detalhes usuário">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Button layoutX="635.0" layoutY="411.0" mnemonicParsing="false" onAction="#sair" prefHeight="26.0" prefWidth="117.0" text="Voltar" />
+      <Button layoutX="29.0" layoutY="411.0" mnemonicParsing="false" onAction="#remover" prefHeight="26.0" prefWidth="117.0" text="Remover usuário" />
+      <TableView fx:id="Emprestimo" layoutX="335.0" layoutY="18.0" prefHeight="374.0" prefWidth="418.0">
+        <columns>
+          <TableColumn fx:id="colLivro" prefWidth="207.99996948242188" text="Livro" />
+          <TableColumn fx:id="colEmprestimo" prefWidth="111.20001220703125" text="Data Empréstimo" />
+            <TableColumn fx:id="colDevolucao" prefWidth="100.00006103515625" text="Data Devolução" />
+        </columns>
+      </TableView>
+      <TextField fx:id="fieldNome" layoutX="39.0" layoutY="86.0" prefHeight="26.0" prefWidth="281.0" />
+      <Label layoutX="39.0" layoutY="68.0" text="Nome:" />
+      <TextField fx:id="fieldEmail" layoutX="39.0" layoutY="130.0" prefHeight="26.0" prefWidth="281.0" />
+      <Label layoutX="39.0" layoutY="112.0" text="Email:" />
+      <TextField fx:id="fieldTelefone" layoutX="39.0" layoutY="174.0" prefHeight="26.0" prefWidth="281.0" />
+      <Label layoutX="39.0" layoutY="156.0" text="Telefone:" />
+      <TextField fx:id="fieldSenha" layoutX="39.0" layoutY="328.0" prefHeight="26.0" prefWidth="281.0" />
+      <Label layoutX="40.0" layoutY="310.0" text="Nova senha:" />
+      <Button layoutX="209.0" layoutY="366.0" mnemonicParsing="false" onAction="#salvarSenha" text="Salvar nova senha" />
+      <Button layoutX="242.0" layoutY="240.0" mnemonicParsing="false" onAction="#salvar" prefHeight="26.0" prefWidth="78.0" text="Salvar" />
+      <CheckBox layoutX="38.0" layoutY="214.0" mnemonicParsing="false" text="Administrador" />
+      <Separator layoutX="39.0" layoutY="287.0" prefHeight="3.0" prefWidth="282.0" />
+   </children>
+</AnchorPane>

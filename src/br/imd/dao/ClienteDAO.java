@@ -27,4 +27,11 @@ public class ClienteDAO {
 		System.out.println("Cliente Inserido com sucesso!!");
 
 	}
+	
+	public void listarClientes() {
+		
+		for (Cliente cliente: clientes) {
+			System.out.println("Nome : "+cliente.getNome());	
+		}
+	}
 }
