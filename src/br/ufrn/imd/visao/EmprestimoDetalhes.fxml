@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="413.0" prefWidth="467.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrn.imd.controle.EmprestimoDetalhesController">
+   <children>
+      <Label layoutX="26.0" layoutY="8.0" prefHeight="60.0" prefWidth="255.0" text="Detalhes empréstimo">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Button layoutX="325.0" layoutY="25.0" mnemonicParsing="false" onAction="#sair" prefHeight="26.0" prefWidth="117.0" text="Voltar" />
+      <Button layoutX="25.0" layoutY="356.0" mnemonicParsing="false" onAction="#remover" prefHeight="26.0" prefWidth="142.0" text="Remover empréstimo" />
+      <Label layoutX="29.0" layoutY="68.0" text="Usuário:" />
+      <Label layoutX="246.0" layoutY="257.0" text="Devolução" />
+      <Label layoutX="28.0" layoutY="257.0" text="Empréstimo:" />
+      <Button layoutX="320.0" layoutY="356.0" mnemonicParsing="false" onAction="#salvar" prefHeight="26.0" prefWidth="118.0" text="Salvar" />
+      <Label layoutX="28.0" layoutY="127.0" text="Livro:" />
+      <DatePicker fx:id="dateDevolucao" layoutX="247.0" layoutY="275.0" prefHeight="26.0" prefWidth="194.0" />
+      <Label fx:id="labelUsuario" layoutX="30.0" layoutY="86.0" prefHeight="27.0" prefWidth="403.0" style="-fx-font-weight: bold;" text="Label">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelLivro" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="30.0" layoutY="145.0" prefHeight="60.0" prefWidth="403.0" style="-fx-font-weight: bold;" text="Label" wrapText="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Separator layoutX="25.0" layoutY="218.0" prefHeight="18.0" prefWidth="417.0" />
+      <DatePicker fx:id="dateEmprestimo" disable="true" layoutX="28.0" layoutY="275.0" prefHeight="26.0" prefWidth="193.0" />
+   </children>
+</AnchorPane>
