@@ -33,10 +33,11 @@
 -->
 
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
@@ -58,29 +59,35 @@
             <MenuItem fx:id="menuUsuarioPesquisar" mnemonicParsing="false" onAction="#usuarioPesquisar" text="Pesquisar" />
           </items>
         </Menu>
+            <Menu mnemonicParsing="false" text="Autores">
+              <items>
+                <MenuItem fx:id="menuAutorInserir" mnemonicParsing="false" onAction="#autorInserir" text="Inserir" />
+                  <MenuItem fx:id="menuAutorPesquisar" mnemonicParsing="false" onAction="#autorPesquisar" text="Pesquisar" />
+              </items>
+            </Menu>
         <Menu mnemonicParsing="false" text="Livros">
                <items>
-                  <MenuItem fx:id="menuLivroInserir" mnemonicParsing="false" text="Inserir" />
-                  <MenuItem fx:id="menuLivroPesquisar" mnemonicParsing="false" text="Pesquisar" />
+                  <MenuItem fx:id="menuLivroInserir" mnemonicParsing="false" onAction="#livroInserir" text="Inserir" />
+                  <MenuItem fx:id="menuLivroPesquisar" mnemonicParsing="false" onAction="#livroPesquisar" text="Pesquisar" />
                </items>
         </Menu>
             <Menu mnemonicParsing="false" text="Empréstimos">
               <items>
-                <MenuItem fx:id="menuEmprestimoInserir" mnemonicParsing="false" text="Inserir" />
-                  <MenuItem fx:id="menuEmprestimoPesquisar" mnemonicParsing="false" text="Pesquisar" />
+                <MenuItem fx:id="menuEmprestimoInserir" mnemonicParsing="false" onAction="#emprestimoInserir" text="Inserir" />
+                  <MenuItem fx:id="menuEmprestimoPesquisar" mnemonicParsing="false" onAction="#emprestimoPesquisar" text="Pesquisar" />
               </items>
             </Menu>
         <Menu mnemonicParsing="false" text="Ajuda">
           <items>
-            <MenuItem fx:id="menuSobre" mnemonicParsing="false" text="Sobre" />
+            <MenuItem fx:id="menuSobre" mnemonicParsing="false" onAction="#sobre" text="Sobre" />
           </items>
         </Menu>
       </menus>
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
-            <Rectangle arcWidth="5.0" fill="#7e7e7e" height="163.0" layoutX="33.0" layoutY="33.0" stroke="BLACK" strokeType="INSIDE" width="119.0" />
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="33.0" layoutY="33.0" prefHeight="54.0" prefWidth="119.0" text="Usuários" textAlignment="CENTER" textFill="WHITE">
+            <Rectangle arcWidth="5.0" fill="#7e7e7e" height="163.0" layoutX="14.0" layoutY="33.0" stroke="BLACK" strokeType="INSIDE" width="119.0" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="33.0" prefHeight="54.0" prefWidth="119.0" text="Usuários" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font>
@@ -88,8 +95,8 @@
                   <Tooltip text="Total de usuários cadastrados" />
                </tooltip>
             </Label>
-            <Rectangle arcWidth="5.0" fill="#7e7e7e" height="163.0" layoutX="181.0" layoutY="33.0" stroke="BLACK" strokeType="INSIDE" width="119.0" />
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="180.0" layoutY="33.0" prefHeight="54.0" prefWidth="119.0" text="Livros" textAlignment="CENTER" textFill="WHITE">
+            <Rectangle arcWidth="5.0" fill="#7e7e7e" height="163.0" layoutX="162.0" layoutY="33.0" stroke="BLACK" strokeType="INSIDE" width="119.0" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="161.0" layoutY="33.0" prefHeight="54.0" prefWidth="119.0" text="Livros" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font>
@@ -97,8 +104,8 @@
                   <Tooltip text="Total de livros cadastrados" />
                </tooltip>
             </Label>
-            <Rectangle arcWidth="5.0" fill="#7e7e7e" height="163.0" layoutX="329.0" layoutY="33.0" stroke="BLACK" strokeType="INSIDE" width="119.0" />
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="328.0" layoutY="33.0" prefHeight="54.0" prefWidth="119.0" text="Empréstimos" textAlignment="CENTER" textFill="WHITE">
+            <Rectangle arcWidth="5.0" fill="#7e7e7e" height="163.0" layoutX="310.0" layoutY="33.0" stroke="BLACK" strokeType="INSIDE" width="119.0" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="309.0" layoutY="33.0" prefHeight="54.0" prefWidth="119.0" text="Empréstimos" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font>
@@ -106,23 +113,29 @@
                   <Tooltip text="Total de livros que estão emprestados" />
                </tooltip>
             </Label>
-            <ListView layoutX="479.0" layoutY="33.0" pickOnBounds="false" prefHeight="474.0" prefWidth="402.0" style="-fx-border-color: #000;" />
-            <Label fx:id="labelUsuarios" alignment="CENTER" contentDisplay="CENTER" layoutX="33.0" layoutY="87.0" prefHeight="78.0" prefWidth="119.0" text="00" textAlignment="CENTER" textFill="WHITE">
+            <Label fx:id="labelUsuarios" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="87.0" prefHeight="78.0" prefWidth="119.0" text="00" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="36.0" />
                </font>
             </Label>
-            <Label fx:id="labelLivros" alignment="CENTER" contentDisplay="CENTER" layoutX="180.0" layoutY="87.0" prefHeight="78.0" prefWidth="119.0" text="00" textAlignment="CENTER" textFill="WHITE">
+            <Label fx:id="labelLivros" alignment="CENTER" contentDisplay="CENTER" layoutX="161.0" layoutY="87.0" prefHeight="78.0" prefWidth="119.0" text="00" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="36.0" />
                </font>
             </Label>
-            <Label fx:id="LabelEmprestimos" alignment="CENTER" contentDisplay="CENTER" layoutX="328.0" layoutY="87.0" prefHeight="78.0" prefWidth="119.0" text="00" textAlignment="CENTER" textFill="WHITE">
+            <Label fx:id="labelEmprestimos" alignment="CENTER" contentDisplay="CENTER" layoutX="309.0" layoutY="87.0" prefHeight="78.0" prefWidth="119.0" text="00" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="36.0" />
                </font>
             </Label>
-            <Label layoutX="479.0" layoutY="14.0" prefHeight="18.0" prefWidth="129.0" text="Últimos empréstimos:" />
+            <Label layoutX="443.0" layoutY="14.0" prefHeight="18.0" prefWidth="129.0" text="Últimos empréstimos:" />
+            <TableView fx:id="tableEmprestimo" layoutX="443.0" layoutY="33.0" prefHeight="482.0" prefWidth="442.0">
+              <columns>
+                <TableColumn fx:id="colUsuario" prefWidth="156.0" text="Usuário" />
+                <TableColumn fx:id="colLivro" prefWidth="204.0" text="Livro" />
+                  <TableColumn fx:id="colDevolucao" minWidth="0.0" text="Devolução" />
+              </columns>
+            </TableView>
       </children>
     </AnchorPane>
   </children>
